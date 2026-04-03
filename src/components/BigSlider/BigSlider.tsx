@@ -5,7 +5,7 @@ import { useSwipeable } from 'react-swipeable';
 
 function prepareSliderImages() {
   const array: string[] = [];
-  const imagesPath = './../../img/slider/slider_';
+  const imagesPath = './img/slider/slider_';
 
   for (let i = 0; i < 5; i++) {
     array.push(imagesPath + i + '.png');
