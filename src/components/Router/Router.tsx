@@ -1,4 +1,4 @@
-import { Layout } from '../Layout/Layout';
+import { Layout } from '../Layout';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { HomePage } from '../../modules/HomePage';
 import { FavoritesPage } from '../../modules/FavoritesPage';
