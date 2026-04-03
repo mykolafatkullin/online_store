@@ -1,0 +1,65 @@
+@import '../../styles/variables';
+
+.bigSlider {
+  overflow: hidden;
+  margin: 0 -16px;
+  box-sizing: border-box;
+  width: 100vw;
+  margin-bottom: 66px;
+  touch-action: pan-y;
+
+  &List {
+    list-style: none;
+    display: flex;
+    padding: 0;
+
+    &Element {
+      min-width: 100vw;
+      height: 100vw;
+    }
+  }
+
+  &Image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+  }
+}
+
+.sliderContainer {
+  margin-bottom: 18px;
+}
+
+.dashes {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.dashe {
+  width: 14px;
+  height: 4px;
+  background-color: $color_secondary;
+  transition: background-color $animation_speed;
+
+  &Active {
+    background-color: $color_primary;
+  }
+}
+
+.Button {
+  display: none;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &Left {
+
+  }
+
+  &Right {
+
+  }
+}

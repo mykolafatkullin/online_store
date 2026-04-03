@@ -1,0 +1,66 @@
+@use 'sass:map';
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} $animation-speed;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin set-font($fontProperties) {
+  $size-map: map.get($fontProperties, size);
+  $weight_map: map.get($fontProperties, weight);
+  $spacing_map: map.get($fontProperties, spacing);
+  $height_map: map.get($fontProperties, height);
+
+  font-size: resolve_property($size-map, mobile);
+  font-weight: resolve_property($weight_map, mobile);
+  line-height: resolve_property($height_map, mobile);
+  letter-spacing: resolve_property($spacing_map, mobile);
+  text-transform: map.get($fontProperties, transform);
+  font-family: Mont, serif;
+
+  @include on-tablet {
+    font-size: resolve_property($size-map, tablet, mobile);
+    font-weight: resolve_property($weight_map, tablet, mobile);
+    line-height: resolve_property($height_map, tablet, mobile);
+    letter-spacing: resolve_property($spacing_map, tablet, mobile);
+  }
+}
+
+@function resolve_property($map, $keys...) {
+  @each $key in $keys {
+    @if map.has-key($map, $key) {
+      @return map.get($map, $key);
+    }
+  }
+
+  @return null;
+}
+
+@mixin content-padding-inline {
+  --padding: 16px;
+
+  padding-inline: var(--padding);
+
+  @include on-tablet {
+    --padding: 24px;
+  }
+
+  @include on-desktop {
+    --padding: calc((100vw - 1136px) / 2);
+  }
+}
+

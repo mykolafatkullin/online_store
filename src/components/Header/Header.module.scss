@@ -1,0 +1,59 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 0 0 $color_elements;
+  z-index: 1000;
+
+  @include on-tablet {
+    justify-content: normal;
+    gap: 16px;
+  }
+
+  @include on-desktop {
+    height: 64px;
+    gap: 24px;
+  }
+}
+
+.logo {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  height: 20px;
+
+  &Link {
+    display: block;
+    width: 128px;
+    padding-inline: 16px;
+    padding-block: 13px;
+    cursor: pointer;
+
+    @include on-tablet {
+      width: 96px;
+    }
+
+    @include on-desktop {
+      width: 128px;
+      padding-inline: 24px;
+      padding-block: 18px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+
+  @include on-tablet {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,121 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.navigation {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    gap: 32px;
+  }
+
+  @include on-desktop {
+    gap: 64px;
+  }
+
+  &Link {
+    color: $color_secondary;
+
+    &:hover {
+      @include hover(color, $color_primary);
+    }
+
+    &Active {
+      color: $color_primary;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: $color_primary;
+        bottom: -15.5px;
+
+        @include on-desktop {
+          bottom: -23.5px;
+        }
+      }
+
+      &Burger {
+
+        &::after {
+          height: 2px;
+          bottom: -6px;
+        }
+      }
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+
+  @include on-desktop {
+    width: 64px;
+    height: 64px;
+  }
+
+  &HiddenMobile {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &HiddenDesktop {
+    display: flex;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+.buttonAction {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &:hover {
+    @include hover(border, 1px solid $color_primary);
+  }
+
+  &Active {
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: $color_primary;
+      bottom: 0;
+    }
+  }
+}
+
+.buttonMenu {
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    @include hover(transform, scale(1.1))
+  }
+}

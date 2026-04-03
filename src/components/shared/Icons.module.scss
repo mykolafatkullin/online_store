@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+
+.iconWrapper {
+  border: 1px solid $color_elements;
+}
+
+.icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  &Menu {
+    background-image: url("/img/icons/Menu.svg");
+  }
+
+  &Close {
+    background-image: url("/img/icons/Close.svg");
+  }
+
+
+  &Cart {
+    background-image: url("img/icons/Shopping_bag.svg");
+  }
+
+  &Favorites {
+    background-image: url("/img/icons/Favourites.svg");
+  }
+
+  &ArrowUp {
+    background-image: url("/img/icons/arrow_up.svg");
+  }
+}
