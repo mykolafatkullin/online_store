@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../../public/img/logo/Logo.svg';
+import logo from '/img/logo/Logo.svg';
 import footer from './Footer.module.scss';
 import icon from '../shared/Icons.module.scss';
 import classNames from 'classnames';
