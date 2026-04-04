@@ -26,10 +26,18 @@
   }
 
   &Favorites {
-    background-image: url("../img/icons/Favourites.svg");
+    background-image: url("/public/img/icons/Favourites.svg");
   }
 
   &ArrowUp {
-    background-image: url("../img/icons/arrow_up.svg");
+    background-image: url("/public/img/icons/arrow_up.svg");
+  }
+
+  &ArrowLeft {
+    background-image: url("/public/img/icons/arrow_left.svg");
+  }
+
+  &ArrowRight {
+    background-image: url("/public/img/icons/arrow_right.svg");
   }
 }
