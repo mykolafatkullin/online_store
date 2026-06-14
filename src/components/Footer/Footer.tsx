@@ -1,8 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '/img/logo/Logo.svg';
 import footer from './Footer.module.scss';
-import icon from '../shared/Icons.module.scss';
 import classNames from 'classnames';
+import { Arrow } from '../Arrow';
+import { ArrowDirection } from '../../shared/IconArrow';
+import { AppRoutes } from '../Router';
 
 export const Footer = () => {
   const handleBackToTop = () => {
@@ -14,18 +16,18 @@ export const Footer = () => {
 
   return (
     <footer className={footer.footer}>
-      <Link to="/" className={footer.logoLink}>
+      <Link to={AppRoutes.HOME} className={footer.logoLink}>
         <img src={logo} alt="Logo" className={footer.logo} />
       </Link>
       <nav className={classNames('font-uppercase', footer.nav)}>
-        <li>
+        <li className={footer.navItem}>
           <NavLink to="https://github.com/MykolaFatkullin">Github</NavLink>
         </li>
-        <li>
-          <NavLink to="/">Contacts</NavLink>
+        <li className={footer.navItem}>
+          <NavLink to={AppRoutes.HOME}>Contacts</NavLink>
         </li>
-        <li>
-          <NavLink to="/">Rights</NavLink>
+        <li className={footer.navItem}>
+          <NavLink to={AppRoutes.HOME}>Rights</NavLink>
         </li>
       </nav>
       <button
@@ -33,9 +35,9 @@ export const Footer = () => {
         onClick={handleBackToTop}
       >
         Back to top
-        <span className={classNames(icon.iconWrapper, footer.backToTopWrapper)}>
-          <span className={classNames(icon.icon, icon.iconArrowUp)} />
-        </span>
+        <div className={footer.backToTopWrapper}>
+          <Arrow direction={ArrowDirection.Up} />
+        </div>
       </button>
     </footer>
   );

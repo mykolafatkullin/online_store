@@ -29,11 +29,7 @@ export const Layout = () => {
         isMenuOpened={isMobileOpened}
         onToggleMenu={() => setIsMobileOpened(prev => !prev)}
       />
-      <div className="section">
-        <div className="container">
-          <Outlet />
-        </div>
-      </div>
+      <Outlet />
       <Footer />
 
       <BurgerMenu

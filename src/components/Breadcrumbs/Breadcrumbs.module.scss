@@ -1,0 +1,57 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.Breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 0;
+  margin-bottom: 24px;
+  overflow: hidden;
+
+  @include on-tablet {
+    margin-bottom: 40px;
+  }
+}
+
+.BreadcrumbsItem {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.BreadcrumbsItem:last-child {
+  flex-shrink: 1;
+}
+
+.BreadcrumbsHomeLink {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: $color_primary;
+}
+
+.BreadcrumbsSeparator {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.BreadcrumbsLink {
+  color: $color_primary;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.BreadcrumbsCurrent {
+  min-width: 0;
+  overflow: hidden;
+
+  color: $color_secondary;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

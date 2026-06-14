@@ -1,67 +1,90 @@
-@import '../../styles/variables';
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
 
 .bigSlider {
-  overflow: hidden;
-  margin: 0 -16px;
-  box-sizing: border-box;
-  width: 100vw;
-  margin-bottom: 66px;
-  touch-action: pan-y;
+  position: relative;
+  padding-bottom: 18px;
+  box-sizing: unset;
+  height: 100vw;
+  margin-bottom: 56px;
 
-  &List {
-    list-style: none;
+
+  @include on-tablet {
+    height: 189px;
+    padding-inline: 75px;
+    margin-bottom: 64px;
+  }
+
+  @include on-desktop {
+    height: 400px;
+    padding-inline: calc((100vw - 1040px) / 2);
+    margin-bottom: 80px;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 14px;
+    height: 4px;
+    background: $color_secondary;
+    border-radius: 0;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    width: 14px;
+    height: 4px;
+    background: $color_primary;
+    border-radius: 0;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: 0;
     display: flex;
-    padding: 0;
+    justify-content: center;
+  }
 
-    &Element {
-      min-width: 100vw;
-      height: 100vw;
+  :global(.swiper-slide) {
+    height: 100%;
+    width: 100%;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.button {
+  display: none;
+
+  @include on-tablet {
+    z-index: 2;
+    position: absolute;
+    display: block;
+    background-color: transparent;
+    pointer-events: all;
+    border: none;
+    height: 189px;
+    width: 32px;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  @include on-desktop {
+    height: 400px;
+  }
+
+  &Prev {
+    left: 24px;
+
+    @include on-desktop {
+      left: calc((100vw - 1136px) / 2);
     }
   }
 
-  &Image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: left;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-}
+  &Next {
+    right: 24px;
 
-.sliderContainer {
-  margin-bottom: 18px;
-}
-
-.dashes {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-}
-
-.dashe {
-  width: 14px;
-  height: 4px;
-  background-color: $color_secondary;
-  transition: background-color $animation_speed;
-
-  &Active {
-    background-color: $color_primary;
-  }
-}
-
-.Button {
-  display: none;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-
-  &Left {
-
-  }
-
-  &Right {
-
+    @include on-desktop {
+      right: calc((100vw - 1136px) / 2);
+    }
   }
 }

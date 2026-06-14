@@ -1,20 +1,13 @@
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
 import burgerMenu from './BurgerMenu.module.scss';
-import pageNavigation from '../shared/PageNavigation.module.scss';
-import icons from '../shared/Icons.module.scss';
 import { useEffect } from 'react';
+import { PageNavigation } from '../PageNavigation';
+import { NavigationLink, NavigationLinks } from '../NavigationLink';
 
 type Props = {
   isOpened: boolean;
   onToggle: () => void;
 };
-
-const getLinkClass = ({ isActive }: { isActive: boolean }) =>
-  classNames('font-uppercase', pageNavigation.navigation__link, {
-    [pageNavigation.navigationLinkActive]: isActive,
-    [pageNavigation.navigationLinkActiveBurger]: isActive,
-  });
 
 export const BurgerMenu = ({ isOpened, onToggle }: Props) => {
   useEffect(() => {
@@ -40,58 +33,19 @@ export const BurgerMenu = ({ isOpened, onToggle }: Props) => {
           [burgerMenu.menuActive]: isOpened,
         })}
       >
-        <nav className={burgerMenu.navigation}>
-          <li>
-            <NavLink to="/" className={getLinkClass} onClick={onToggle}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/phones" className={getLinkClass} onClick={onToggle}>
-              Phones
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/tablets" className={getLinkClass} onClick={onToggle}>
-              Tablets
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/accessories"
-              className={getLinkClass}
-              onClick={onToggle}
-            >
-              Accessories
-            </NavLink>
-          </li>
-        </nav>
+        <PageNavigation isBurgerMenu={true} onToggle={onToggle} />
         <nav className={burgerMenu.buttons}>
-          <li className={classNames(burgerMenu.button, icons.iconWrapper)}>
-            <NavLink
-              to="/favorites"
-              className={({ isActive }) =>
-                classNames(pageNavigation.buttonAction, {
-                  [pageNavigation.buttonActionActive]: isActive,
-                })
-              }
-              onClick={onToggle}
-            >
-              <span className={classNames(icons.icon, icons.iconFavorites)} />
-            </NavLink>
+          <li className={classNames(burgerMenu.button)}>
+            <NavigationLink
+              navigationType={NavigationLinks.Favorite}
+              handleClick={onToggle}
+            />
           </li>
-          <li className={classNames(burgerMenu.button, icons.iconWrapper)}>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                classNames(pageNavigation.buttonAction, {
-                  [pageNavigation.buttonActionActive]: isActive,
-                })
-              }
-              onClick={onToggle}
-            >
-              <span className={classNames(icons.icon, icons.iconCart)} />
-            </NavLink>
+          <li className={classNames(burgerMenu.button)}>
+            <NavigationLink
+              navigationType={NavigationLinks.Cart}
+              handleClick={onToggle}
+            />
           </li>
         </nav>
       </div>

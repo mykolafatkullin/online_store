@@ -1,27 +1,39 @@
 import { Layout } from '../Layout';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { HomePage } from '../../modules/HomePage';
-import { FavoritesPage } from '../../modules/FavoritesPage';
-import { CatalogPage } from '../../modules/CatalogPage';
-import { CartPage } from '../../modules/CartPage';
-import { ItemCardPage } from '../../modules/ItemCardPage';
+import { HomePage } from '../../pages/HomePage';
+import { FavoritesPage } from '../../pages/FavoritesPage';
+import { CartPage } from '../../pages/CartPage';
+import { AppRoutes } from './AppRoutes';
+import { ItemCardPage } from '../../pages/ItemCardPage';
+import { PhonesPage } from '../../pages/PhonesPage';
+import { TabletsPage } from '../../pages/TabletsPage';
+import { AccessoriesPage } from '../../pages/AccessoriesPage';
 
 export const Router = () => (
   <HashRouter>
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path={AppRoutes.HOME} element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="favorites" element={<FavoritesPage />} />
-        <Route path="phones" element={<CatalogPage />}>
-          <Route path=":itemId" element={<ItemCardPage />} />
-        </Route>
-        <Route path="tablets" element={<CatalogPage />}>
-          <Route path=":itemId" element={<ItemCardPage />} />
-        </Route>
-        <Route path="accessories" element={<CatalogPage />}>
-          <Route path=":itemId" element={<ItemCardPage />} />
-        </Route>
-        <Route path="cart" element={<CartPage />} />
+        <Route path={AppRoutes.FAVORITE} element={<FavoritesPage />} />
+        <Route path={AppRoutes.PHONES} element={<PhonesPage />}></Route>
+        <Route path={AppRoutes.TABLETS} element={<TabletsPage />}></Route>
+        <Route
+          path={AppRoutes.ACCESSORIES}
+          element={<AccessoriesPage />}
+        ></Route>
+        <Route path={AppRoutes.CART} element={<CartPage />} />
+        <Route
+          path={`${AppRoutes.PHONES}/:productId`}
+          element={<ItemCardPage category={'phones'} />}
+        />
+        <Route
+          path={`${AppRoutes.TABLETS}/:productId`}
+          element={<ItemCardPage category={'tablets'} />}
+        />
+        <Route
+          path={`${AppRoutes.ACCESSORIES}/:productId`}
+          element={<ItemCardPage category={'accessories'} />}
+        />
       </Route>
     </Routes>
   </HashRouter>

@@ -1,0 +1,20 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+@import '../../styles/svg';
+
+.Arrow {
+  border: 1px solid $color_icons;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include hover(border, 1px solid $color_primary);
+
+  &Disabled {
+    .svg {
+      color: $color_icons;
+    }
+  }
+}

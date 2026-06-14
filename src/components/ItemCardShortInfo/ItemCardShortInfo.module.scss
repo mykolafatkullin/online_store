@@ -1,0 +1,198 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.Title {
+  margin-bottom: 32px;
+}
+
+.ImageContainer {
+  @include on-tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 10px;
+  }
+}
+
+.MainImage {
+  width: 288px;
+  height: 288px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  -webkit-user-drag: none;
+
+  @include on-desktop {
+    width: 464px;
+    height: 464px;
+  }
+}
+
+.SmallImages {
+  display: flex;
+  height: 49px;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 40px;
+
+  @include on-tablet {
+    flex-direction: column;
+    width: 35px;
+  }
+
+  @include on-desktop {
+    width: 80px;
+    height: 464px;
+    gap: 16px;
+  }
+}
+
+.SmallImage {
+  width: 51px;
+  height: 49px;
+  object-fit: contain;
+  border: 1px solid $color_elements;
+  cursor: pointer;
+
+  @include hover(scale, 1.1);
+
+  @include on-tablet {
+    width: 35px;
+    height: 35px;
+  }
+
+  @include on-desktop {
+    width: 80px;
+    height: 80px;
+  }
+
+  &Active {
+    border: 1px solid $color_primary;
+  }
+}
+
+.ColorSelectorSection {
+  color: $color_secondary;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+
+.CapacitySection {
+  padding-block: 24px;
+}
+
+.CapacityButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.CapacityButtonWrapper {
+  height: 32px;
+  width: 60px;
+}
+
+.CapacitySubtitle {
+  display: block;
+  color: $color_secondary;
+  margin-bottom: 8px;
+}
+
+.PriceAndButtons {
+  padding-top: 32px;
+  padding-bottom: 56px;
+
+  @include on-tablet {
+    padding-bottom: 64px;
+  }
+
+  @include on-desktop {
+    width: 320px;
+  }
+}
+
+.Prices {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.NewPrice {
+  color: $color_primary;
+}
+
+.OldPrice {
+  position: relative;
+  color: $color_secondary;
+  font-family: Mont, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1.5px;
+    background: currentColor;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+.Details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.DetailsInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.DetailTitle {
+  color: $color_secondary;
+}
+
+.DetailText {
+  color: $color_primary;
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 32px;
+
+  & button:first-child {
+    flex: 4;
+  }
+
+  & button:last-child {
+    flex: 1;
+  }
+}
+
+.ContentWrapper {
+  display: flex;
+
+  @include on-desktop {
+    gap: 64px;
+  }
+}
+
+.AdditionalInfoContainer {
+  width: 512px;
+}
+
+.HorizontalLine {
+  border-bottom: 1px solid $color_elements;
+
+  @include on-desktop {
+    width: 320px;
+  }
+}

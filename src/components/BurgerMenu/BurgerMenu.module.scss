@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
 
 .overlay {
   position: fixed;
@@ -55,4 +55,5 @@
 
 .button {
   width: 50%;
+  border: 1px solid $color_elements;
 }

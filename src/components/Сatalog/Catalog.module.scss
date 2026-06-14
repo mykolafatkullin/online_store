@@ -1,0 +1,115 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.Catalog {
+  padding-top: 24px;
+  padding-bottom: 64px;
+}
+
+.CatalogTitle {
+  margin-bottom: 8px;
+}
+
+.CatalogCounter {
+  color: $color_secondary;
+  margin-bottom: 32px;
+}
+
+.CatalogLabel {
+  display: flex;
+  flex-direction: column;
+  color: $color_secondary;
+  gap: 4px;
+}
+
+.CatalogControls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.CatalogSelect {
+  all: unset;
+  align-items: center;
+  color: $color_primary;
+  height: 40px;
+  background: transparent;
+  border: 1px solid $color_icons;
+  width: 136px;
+  padding-left: 12px;
+  box-sizing: border-box;
+}
+
+.CatalogSelectSorting {
+  @include on-tablet {
+    width: 187px;
+  }
+
+  @include on-desktop {
+    width: 176px;
+  }
+}
+
+.CatalogSelectWrapper {
+  position: relative;
+
+}
+
+.CatalogSelectArrow {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
+.CatalogGrid {
+  @include page-grid;
+  row-gap: 40px;
+  margin-bottom: 24px;
+}
+
+.CatalogItem {
+  grid-column: span 4;
+
+  @include on-tablet {
+    grid-column: span 6;
+  }
+
+  @include hover(transform, scale(1.1));
+}
+
+.CatalogSkeletonItem {
+  grid-column: span 6;
+}
+
+.CatalogNavigationButtons {
+  display: flex;
+  justify-content: center;
+  height: 32px;
+  gap: 8px;
+}
+
+.CatalogNavigationButtons button {
+  width: 32px;
+}
+
+
+.CatalogNavigationLinks {
+  display: flex;
+  gap: 8px;
+  color: $color_secondary;
+  margin-bottom: 24px;
+
+  @include on-tablet {
+    margin-bottom: 40px;
+  }
+}
+
+.CatalogHomeLink {
+  color: $color_primary;
+}
+
+.CatalogEmptyMessage {
+  margin: 40px 0 80px;
+  color: $color_secondary;
+  text-align: center;
+}

@@ -1,5 +1,5 @@
-@import "../../styles/mixins";
-@import "../../styles/variables";
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
 
 .header {
   display: flex;
@@ -56,4 +56,51 @@
     width: 100%;
     justify-content: space-between;
   }
+}
+
+.buttonMenu {
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    @include hover(transform, scale(1.1))
+  }
+}
+
+.button {
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color_elements;
+
+  @include on-desktop {
+    width: 64px;
+    height: 64px;
+  }
+
+  &HiddenMobile {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &HiddenDesktop {
+    display: flex;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
 }
